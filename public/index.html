@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>📚 Book Shop</h1>
+        <nav>
+            <div id="auth-links">
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            </div>
+            <div id="user-info" style="display: none;">
+                <span id="welcome-user"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Search Section -->
+        <section class="search-section">
+            <h2>Search Books</h2>
+            <div class="search-tabs">
+                <button class="tab-btn active" data-tab="isbn">Search by ISBN</button>
+                <button class="tab-btn" data-tab="author">Search by Author</button>
+                <button class="tab-btn" data-tab="title">Search by Title</button>
+            </div>
+            
+            <div class="search-forms">
+                <form id="isbn-search" class="search-form active">
+                    <input type="text" id="isbn-input" placeholder="Enter ISBN..." required>
+                    <button type="submit">Search</button>
+                </form>
+                
+                <form id="author-search" class="search-form">
+                    <input type="text" id="author-input" placeholder="Enter Author name..." required>
+                    <button type="submit">Search</button>
+                </form>
+                
+                <form id="title-search" class="search-form">
+                    <input type="text" id="title-input" placeholder="Enter Book title..." required>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Books Display Section -->
+        <section class="books-section">
+            <h2>Available Books</h2>
+            <button id="load-all-books">Load All Books</button>
+            <div id="books-container"></div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews-section" style="display: none;">
+            <h2>Book Reviews</h2>
+            <div id="reviews-container"></div>
+            
+            <!-- Add Review Form (for logged-in users) -->
+            <div id="add-review-form" style="display: none;">
+                <h3>Add Your Review</h3>
+                <form id="review-form">
+                    <input type="hidden" id="review-book-id">
+                    <div>
+                        <label>Rating:</label>
+                        <select id="review-rating" required>
+                            <option value="">Select Rating</option>
+                            <option value="1">1 Star</option>
+                            <option value="2">2 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="5">5 Stars</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Comment:</label>
+                        <textarea id="review-comment" required placeholder="Write your review..."></textarea>
+                    </div>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,7 +1,59 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
+const fs = require('fs');
+const path = require('path');
 const router = express.Router();
-const { readJSONFile, writeJSONFile } = require('../utils/fileOperations');
-const { authenticateToken } = require('../middleware/auth');
+
+const JWT_SECRET = 'your-secret-key-here';
+
+// Authentication middleware
+const authenticateToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (!token) {
+        return res.status(401).json({ message: 'Access token required' });
+    }
+
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+        if (err) {
+            return res.status(403).json({ message: 'Invalid token' });
+        }
+        req.user = user;
+        next();
+    });
+};
+
+// Helper functions
+const readJSONFile = (filename) => {
+    return new Promise((resolve, reject) => {
+        const filePath = path.join(__dirname, '../data', filename);
+        fs.readFile(filePath, 'utf8', (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                try {
+                    resolve(JSON.parse(data));
+                } catch (parseErr) {
+                    reject(parseErr);
+                }
+            }
+        });
+    });
+};
+
+const writeJSONFile = (filename, data) => {
+    return new Promise((resolve, reject) => {
+        const filePath = path.join(__dirname, '../data', filename);
+        fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf8', (err) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve();
+            }
+        });
+    });
+};
 
 // Task 8: Add/Modify book review (2 points)
 router.post('/', authenticateToken, async (req, res) => {
@@ -103,4 +155,4 @@ router.delete('/:id', authenticateToken, async (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = router;    

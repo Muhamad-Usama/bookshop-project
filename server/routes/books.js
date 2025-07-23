@@ -1,7 +1,42 @@
 const express = require('express');
 const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
 const router = express.Router();
-const { readJSONFile, getAllBooksCallback } = require('../utils/fileOperations');
+
+// Helper functions (moved from utils/fileOperations.js)
+const readJSONFile = (filename) => {
+    return new Promise((resolve, reject) => {
+        const filePath = path.join(__dirname, '../data', filename);
+        fs.readFile(filePath, 'utf8', (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                try {
+                    resolve(JSON.parse(data));
+                } catch (parseErr) {
+                    reject(parseErr);
+                }
+            }
+        });
+    });
+};
+
+// Task 10: Async callback function
+const getAllBooksCallback = (callback) => {
+    const filePath = path.join(__dirname, '../data/books.json');
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            return callback(err, null);
+        }
+        try {
+            const books = JSON.parse(data);
+            callback(null, books);
+        } catch (parseErr) {
+            callback(parseErr, null);
+        }
+    });
+};
 
 // Task 1: Get all books available in shop (2 points)
 router.get('/', (req, res) => {

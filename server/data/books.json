@@ -1,11 +1,20 @@
 [
   {
     "id": 1,
-    "title": "Sample Book",
-    "author": "Author Name",
-    "isbn": "978-1234567890",
-    "description": "Book description",
-    "price": 29.99,
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "isbn": "978-0061120084",
+    "description": "A classic novel about racial injustice and childhood innocence",
+    "price": 12.99,
+    "category": "Fiction"
+  },
+  {
+    "id": 2,
+    "title": "1984",
+    "author": "George Orwell",
+    "isbn": "978-0451524935",
+    "description": "A dystopian novel about totalitarianism",
+    "price": 13.99,
     "category": "Fiction"
   }
 ]

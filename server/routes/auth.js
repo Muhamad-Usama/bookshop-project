@@ -1,9 +1,42 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const fs = require('fs');
+const path = require('path');
 const router = express.Router();
-const { readJSONFile, writeJSONFile } = require('../utils/fileOperations');
-const { JWT_SECRET } = require('../middleware/auth');
+
+const JWT_SECRET = 'your-secret-key-here';
+
+// Helper functions
+const readJSONFile = (filename) => {
+    return new Promise((resolve, reject) => {
+        const filePath = path.join(__dirname, '../data', filename);
+        fs.readFile(filePath, 'utf8', (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                try {
+                    resolve(JSON.parse(data));
+                } catch (parseErr) {
+                    reject(parseErr);
+                }
+            }
+        });
+    });
+};
+
+const writeJSONFile = (filename, data) => {
+    return new Promise((resolve, reject) => {
+        const filePath = path.join(__dirname, '../data', filename);
+        fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf8', (err) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve();
+            }
+        });
+    });
+};
 
 // Task 6: Register New User (3 points)
 router.post('/register', async (req, res) => {

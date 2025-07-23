@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "title": "Sample Book",
+    "author": "Author Name",
+    "isbn": "978-1234567890",
+    "description": "Book description",
+    "price": 29.99,
+    "category": "Fiction"
+  }
+]

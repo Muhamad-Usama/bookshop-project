@@ -5,5 +5,54 @@
     "email": "user@example.com",
     "password": "hashedPassword",
     "createdAt": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": 2,
+    "username": "John",
+    "email": "Doe@gmail.com",
+    "password": "$2b$10$pE5uBKYN0oLmlDtcwfbPTOUtSIT6D6igle7CkHb7jt7QhHkXTRuRG",
+    "createdAt": "2025-07-23T20:15:08.038Z"
+  },
+  {
+    "id": 3,
+    "username": "Don",
+    "email": "Don@gmail.com",
+    "password": "$2b$10$cZTI5/AlY9lh2XU.Z5QWYeAqHsheaEoyh8qMGn0nHW95ao7otqT5K",
+    "createdAt": "2025-07-23T20:15:47.668Z"
+  },
+  {
+    "id": 4,
+    "username": "Jade",
+    "email": "jade@gmail.com",
+    "password": "$2b$10$rKyn5iozn/dy2VeyBWVBjeNs5mCykO.ZR0hzNE2GJrBvocva6e1YS",
+    "createdAt": "2025-07-23T20:16:18.431Z"
+  },
+  {
+    "id": 5,
+    "username": "Jason",
+    "email": "jason@gmail.com",
+    "password": "$2b$10$r/fdTyJlJ4K.48ywHz2ofe28s9v2PZAcCYqIL6whZ5r.DhbHbt1wO",
+    "createdAt": "2025-07-23T20:17:29.291Z"
+  },
+  {
+    "id": 6,
+    "username": "Jaison",
+    "email": "Jaison@gmail.com",
+    "password": "$2b$10$NxwDD8ggHOTQO5EI3xpMHe5cUZmwnHk9LA8RsG2xRbJRuXBkNL9si",
+    "createdAt": "2025-07-23T20:17:57.329Z"
+  },
+  {
+    "id": 7,
+    "username": "Uma",
+    "email": "uma@gmail.com",
+    "password": "$2b$10$6WQT.BSZ7fns95C7SGbCLe30zqKAh2yVNQkkfsCxNur0YjPONKTJO",
+    "createdAt": "2025-07-23T20:19:28.888Z"
+  },
+  {
+    "id": 8,
+    "username": "Polan",
+    "email": "polan@gmail.com",
+    "password": "$2b$10$4yrfXQofPU1XBqHrgRvfQOngUkPQ0Dt/4Q9S8EINnu06QQbF7enkO",
+    "createdAt": "2025-07-23T20:20:07.187Z"
   }
 ]

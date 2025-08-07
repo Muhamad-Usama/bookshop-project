@@ -125,10 +125,10 @@ router.put('/:id', authenticateToken, async (req, res) => {
         };
         
         await writeJSONFile('reviews.json', reviews);
-        res.json({ message: 'Review updated successfully' });
+        res.json({ message: 'Your Review updated successfully' });
         
     } catch (error) {
-        res.status(500).json({ message: 'Error updating review', error: error.message });
+        res.status(500).json({ message: 'There is Error on updating review', error: error.message });
     }
 });
 

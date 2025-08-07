@@ -29,8 +29,8 @@
   },
   {
     "id": 5,
-    "username": "Jason",
-    "email": "jason@gmail.com",
+    "username": "mark",
+    "email": "mark@gmail.com",
     "password": "$2b$10$r/fdTyJlJ4K.48ywHz2ofe28s9v2PZAcCYqIL6whZ5r.DhbHbt1wO",
     "createdAt": "2025-07-23T20:17:29.291Z"
   },
@@ -43,8 +43,8 @@
   },
   {
     "id": 7,
-    "username": "Uma",
-    "email": "uma@gmail.com",
+    "username": "abi",
+    "email": "abi@gmail.com",
     "password": "$2b$10$6WQT.BSZ7fns95C7SGbCLe30zqKAh2yVNQkkfsCxNur0YjPONKTJO",
     "createdAt": "2025-07-23T20:19:28.888Z"
   },

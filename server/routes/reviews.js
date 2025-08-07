@@ -99,7 +99,7 @@ router.post('/', authenticateToken, async (req, res) => {
         res.json({ message: 'Review saved successfully' });
         
     } catch (error) {
-        res.status(500).json({ message: 'Error saving review', error: error.message });
+        res.status(500).json({ message: 'There is Error on saving review', error: error.message });
     }
 });
 
@@ -114,7 +114,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
         const reviewIndex = reviews.findIndex(r => r.id === reviewId && r.userId === userId);
         
         if (reviewIndex === -1) {
-            return res.status(404).json({ message: 'Review not found or unauthorized' });
+            return res.status(404).json({ message: 'Your Review not found or unauthorized' });
         }
         
         reviews[reviewIndex] = {
